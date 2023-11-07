@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  sd-webui-prompt-all-in-one-app:
+    image: physton/sd-webui-prompt-all-in-one-app
+    container_name: sd-webui-prompt-all-in-one-app
+    restart: always
+    ports:
+      - 17860:17860
+    environment:
+      - APP_PORT=17860
+    volumes:
+      - ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage
+      - ./dockertest/models:/app/sd-webui-prompt-all-in-one/models
+      - ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags

@@ -1,0 +1,123 @@
+# sd-webui-prompt-all-in-one-app
+
+<div align="center">
+
+### [🇺🇸 English](README.MD) | [🇨🇳 简体中文](README_CN.MD)
+
+</div>
+
+本项目是 [sd-webui-prompt-all-in-one](https://github.com/physton/sd-webui-prompt-all-in-one) 的独立版本，它不需要依赖 [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) 环境，即可在网页中编写和维护你的提示词。
+
+![](./assets/screenshot.jpeg)
+
+----
+
+> 如果你觉得这个扩展有帮助，请在Github上给我一颗星！
+> 你也可以请我喝杯咖啡: [donate](#捐赠)
+
+----
+
+- [开发计划](#开发计划)
+- [Docker 部署](#docker-部署)
+- [手动运行](#手动运行)
+- [捐赠](#捐赠)
+
+## 开发计划
+
+- [x] Docker 部署
+- [ ] Windows、MacOS、Linux 独立APP
+
+## Docker 部署
+
+### 部署
+
+- 使用命令行部署
+  ```bash
+  docker run -d \
+  -p 17860:17860 \
+  -e APP_PORT=17860 \
+  -v ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage \
+  -v ./dockertest/models:/app/sd-webui-prompt-all-in-one/models \
+  -v ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags \
+  physton/sd-webui-prompt-all-in-one-app
+  ```
+
+- 使用 docker-compose 部署
+  1. 新建 `docker-compose.yml` 文件
+  ```yaml
+  version: '3.7'
+  services:
+    sd-webui-prompt-all-in-one-app:
+      image: physton/sd-webui-prompt-all-in-one-app
+      container_name: sd-webui-prompt-all-in-one-app
+      restart: always
+      ports:
+        - 17860:17860
+      environment:
+        - APP_PORT=17860
+      volumes:
+        - ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage
+        - ./dockertest/models:/app/sd-webui-prompt-all-in-one/models
+        - ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags
+  ```
+  2. 启动
+  ```bash
+  docker-compose up -d
+  ```
+
+### 访问
+[http://localhost:17860](http://localhost:17860)
+
+### 环境变量
+| 参数 | 说明 | 默认值 |
+|:-----------:| :----: | :----: |
+| APP_PORT | 服务端口 | 17860 |
+
+### 挂载目录
+| 目录 |  说明   |
+|:-----------:|:-----:|
+| /app/sd-webui-prompt-all-in-one/storage | 存储目录  |
+| /app/sd-webui-prompt-all-in-one/models | 模型目录  |
+| /app/sd-webui-prompt-all-in-one/tags | CSV目录 |
+
+
+## 手动运行
+
+1. 安装 [python](https://www.python.org/downloads/) 3.9+
+  > 请自行搜索安装教程，并将 python 添加到环境变量
+
+2. 通过 git clone 本项目到本地，或者手动[下载](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)本项目zip压缩包并解压。
+
+3. 打开系统命令行，进入项目目录
+
+  ```bash
+  cd sd-webui-prompt-all-in-one-app
+  ```
+
+4. 安装依赖
+
+  ```bash
+  pip3 install -r requirements.txt
+  python install.py
+  ```
+
+5. 运行
+
+  ```bash
+  python app.py
+  ```
+
+6. 访问 [http://localhost:17860](http://localhost:17860)
+
+## 捐赠
+
+[捐赠列表](https://aiodoc.physton.com/zh-CN/Donate.html)
+
+### 请我喝杯咖啡
+
+| ko-fi (EN) | [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/physton) |
+|:-----------:| :----: |
+| Paypal (EN) | [https://paypal.me/physton](https://paypal.me/physton) |
+| 爱发电 (CN) | [https://afdian.net/a/physton/thank](https://afdian.net/a/physton/thank) |
+| 支付宝 (CN) | ![](https://s1.imagehub.cc/images/2023/07/05/alipay.jpeg) |
+| 微信赞赏 (CN) | ![](https://s1.imagehub.cc/images/2023/07/05/wechat.jpeg) |

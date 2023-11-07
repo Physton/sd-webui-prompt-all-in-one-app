@@ -1,0 +1,7 @@
+__pycache__
+flagged
+/venv
+/build
+/dist
+.idea
+/dockertest
