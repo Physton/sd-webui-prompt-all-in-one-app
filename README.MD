@@ -18,20 +18,20 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 ----
 
 - [Development Plan](#development-plan)
-- [Docker Deployment](#docker-deployment)
-- [Manual Run](#manual-run)
+- [Running with Docker](#running-with-docker)
+- [Running Manually](#running-manually)
 - [Donation](#donation)
 
 ## Development Plan
 
-- [x] Docker Deployment
+- [x] Running with Docker
 - [ ] Windows, MacOS, Linux standalone app
 
-## Docker Deployment
+## Running with Docker
 
-### Deployment
+### Run
 
-- Deploy using command line
+- Run using the command line
   ```bash
   docker run -d \
   -p 17860:17860 \
@@ -42,7 +42,7 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
   physton/sd-webui-prompt-all-in-one-app
   ```
 
-- Deploy using docker-compose
+- Run using docker-compose
   1. Create a `docker-compose.yml` file
   ```yaml
   version: '3.7'
@@ -74,40 +74,42 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 | APP_PORT | Server port | 17860 |
 
 ### Mounted Directories
-| Directory |  Description  |
+| Directory | Description |
 |:-----------:|:-----:|
-| /app/sd-webui-prompt-all-in-one/storage | Storage directory  |
-| /app/sd-webui-prompt-all-in-one/models | Model directory  |
+| /app/sd-webui-prompt-all-in-one/storage | Storage directory |
+| /app/sd-webui-prompt-all-in-one/models | Model directory |
 | /app/sd-webui-prompt-all-in-one/tags | CSV directory |
 
-
-## Manual Run
+## Running Manually
 
 1. Install [Python](https://www.python.org/downloads/) 3.9+.
-  > Please search for installation tutorials and add Python to the environment variables.
-
-2. Clone this project locally using git clone, or manually [download](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip) and unzip the project.
-
-3. Open the system command line and navigate to the project directory.
-
-  ```bash
-  cd sd-webui-prompt-all-in-one-app
-  ```
-
-4. Install dependencies.
-
-  ```bash
-  pip3 install -r requirements.txt
-  python install.py
-  ```
-
-5. Run the application.
-
-  ```bash
-  python app.py
-  ```
-
-6. Access [http://localhost:17860](http://localhost:17860)
+   > Please search for installation tutorials and add Python to the environment variables.
+2. Download this project to your local machine.
+   - Option 1: Download using git clone (requires Git installed on your computer)
+     ```bash
+     git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
+     ```
+     > Please note that this project uses submodules, so please use the `--recurse-submodules` parameter to download this project.
+   - Option 2: Manual download: [Click to download](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)
+     - Extract the downloaded zip file. Rename it to `sd-webui-prompt-all-in-one-app`.
+     - Enter the extracted folder.
+     - Download [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one.git) and extract it into the root directory of this project. Rename it to `sd-webui-prompt-all-in-one`.
+3. Check the folder structure, it should be as follows:
+   ![](./assets/screenshot-filelist.png)
+4. Open the system command line (terminal) and navigate to the project directory.
+   ```bash
+   cd sd-webui-prompt-all-in-one-app
+   ```
+5. Install dependencies.
+   ```bash
+   pip3 install -r requirements.txt
+   python install.py
+   ```
+6. Run the application.
+   ```bash
+   python app.py
+   ```
+7. Access [http://localhost:17860](http://localhost:17860)
 
 ## Donation
 
