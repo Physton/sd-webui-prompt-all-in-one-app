@@ -25,6 +25,7 @@ jobs:
           git submodule update --remote
           git commit -am "Update submodules"
           git push
+        continue-on-error: true
 
       - name: Get commit SHA
         id: commit_sha
