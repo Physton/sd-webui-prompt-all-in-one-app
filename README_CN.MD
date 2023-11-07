@@ -91,26 +91,21 @@
     git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
     ```
     > 请注意，本项目使用了子模块，所以请使用 `--recurse-submodules` 参数下载本项目
-  - 方式二：手动下载：[点击下载](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)
-    - 解压下载的压缩包。重命名为 `sd-webui-prompt-all-in-one-app`
-    - 进入解压后的文件夹。
-    - 下载 [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one.git)，并将其解压到本项目的根目录，重命名为 `sd-webui-prompt-all-in-one`
-3. 检查文件夹结构，正确的结构如下：
-  ![](./assets/screenshot-filelist.png)
-4. 打开系统命令行（终端），进入本项目目录
+  - 方式二：手动下载：[Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) 并解压。
+3. 打开系统命令行（终端），进入本项目目录
   ```bash
   cd sd-webui-prompt-all-in-one-app
   ```
-5. 安装依赖
+4. 安装依赖
   ```bash
   pip3 install -r requirements.txt
   python install.py
   ```
-6. 运行
+5. 运行
   ```bash
   python app.py
   ```
-7. 访问 [http://localhost:17860](http://localhost:17860)
+6. 访问 [http://localhost:17860](http://localhost:17860)
 
 ## 捐赠
 

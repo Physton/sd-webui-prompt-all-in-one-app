@@ -90,26 +90,21 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
      git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
      ```
      > Please note that this project uses submodules, so please use the `--recurse-submodules` parameter to download this project.
-   - Option 2: Manual download: [Click to download](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)
-     - Extract the downloaded zip file. Rename it to `sd-webui-prompt-all-in-one-app`.
-     - Enter the extracted folder.
-     - Download [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one.git) and extract it into the root directory of this project. Rename it to `sd-webui-prompt-all-in-one`.
-3. Check the folder structure, it should be as follows:
-   ![](./assets/screenshot-filelist.png)
+   - Option 2: Manual Download: [Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) and unzip it.
 4. Open the system command line (terminal) and navigate to the project directory.
    ```bash
    cd sd-webui-prompt-all-in-one-app
    ```
-5. Install dependencies.
+4. Install dependencies.
    ```bash
    pip3 install -r requirements.txt
    python install.py
    ```
-6. Run the application.
+5. Run the application.
    ```bash
    python app.py
    ```
-7. Access [http://localhost:17860](http://localhost:17860)
+6. Access [http://localhost:17860](http://localhost:17860)
 
 ## Donation
 
