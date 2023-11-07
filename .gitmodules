@@ -1,0 +1,3 @@
+[submodule "sd-webui-prompt-all-in-one"]
+    path = sd-webui-prompt-all-in-one
+    url = https://github.com/Physton/sd-webui-prompt-all-in-one.git
