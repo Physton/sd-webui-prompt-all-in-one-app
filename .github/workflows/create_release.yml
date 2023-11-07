@@ -1,0 +1,39 @@
+name: Create tag and release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Get commit SHA
+        id: commit_sha
+        run: echo "::set-output name=sha_short::$(git rev-parse --short=7 HEAD)"
+        working-directory: ./sd-webui-prompt-all-in-one
+
+      - name: Get commit SHA full
+        id: commit_sha_full
+        run: echo "::set-output name=sha_full::$(git rev-parse HEAD)"
+        working-directory: ./sd-webui-prompt-all-in-one
+
+      - name: Create tag and release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="from.${{ steps.commit_sha.outputs.sha_short }}"
+          RELEASE_NAME="From sd-webui-prompt-all-in-one@${{ steps.commit_sha.outputs.sha_short }}"
+          RELEASE_BODY="https://github.com/Physton/sd-webui-prompt-all-in-one/commit/${{ steps.commit_sha_full.outputs.sha_full }}"
+
+          git tag -a $TAG_NAME -m "Tagging commit $COMMIT_SHA"
+          git push origin $TAG_NAME
+          hub release create -m "$RELEASE_NAME" -a $RELEASE_BODY $TAG_NAME
