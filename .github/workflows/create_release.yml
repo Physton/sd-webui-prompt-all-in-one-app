@@ -36,6 +36,10 @@ jobs:
         run: echo "::set-output name=sha_full::$(git rev-parse HEAD)"
         working-directory: ./sd-webui-prompt-all-in-one
 
+      - name: Install hub
+        run: |
+          sudo snap install hub --classic
+
       - name: Create tag and release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
