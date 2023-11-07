@@ -18,20 +18,20 @@
 ----
 
 - [开发计划](#开发计划)
-- [Docker 部署](#docker-部署)
+- [Docker 运行](#docker-运行)
 - [手动运行](#手动运行)
 - [捐赠](#捐赠)
 
 ## 开发计划
 
-- [x] Docker 部署
+- [x] Docker 运行
 - [ ] Windows、MacOS、Linux 独立APP
 
-## Docker 部署
+## Docker 运行
 
-### 部署
+### 运行
 
-- 使用命令行部署
+- 使用命令行运行
   ```bash
   docker run -d \
   -p 17860:17860 \
@@ -42,7 +42,7 @@
   physton/sd-webui-prompt-all-in-one-app
   ```
 
-- 使用 docker-compose 部署
+- 使用 docker-compose 运行
   1. 新建 `docker-compose.yml` 文件
   ```yaml
   version: '3.7'
@@ -85,29 +85,32 @@
 
 1. 安装 [python](https://www.python.org/downloads/) 3.9+
   > 请自行搜索安装教程，并将 python 添加到环境变量
-
-2. 通过 git clone 本项目到本地，或者手动[下载](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)本项目zip压缩包并解压。
-
-3. 打开系统命令行，进入项目目录
-
+2. 下载本项目到本地。
+  - 方式一：使用 git clone 下载（你的电脑上需要安装 git）
+    ```bash
+    git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
+    ```
+    > 请注意，本项目使用了子模块，所以请使用 `--recurse-submodules` 参数下载本项目
+  - 方式二：手动下载：[点击下载](https://github.com/Physton/sd-webui-prompt-all-in-one-app/archive/refs/heads/main.zip)
+    - 解压下载的压缩包。重命名为 `sd-webui-prompt-all-in-one-app`
+    - 进入解压后的文件夹。
+    - 下载 [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one.git)，并将其解压到本项目的根目录，重命名为 `sd-webui-prompt-all-in-one`
+3. 检查文件夹结构，正确的结构如下：
+  ![](./assets/screenshot-filelist.png)
+4. 打开系统命令行（终端），进入本项目目录
   ```bash
   cd sd-webui-prompt-all-in-one-app
   ```
-
-4. 安装依赖
-
+5. 安装依赖
   ```bash
   pip3 install -r requirements.txt
   python install.py
   ```
-
-5. 运行
-
+6. 运行
   ```bash
   python app.py
   ```
-
-6. 访问 [http://localhost:17860](http://localhost:17860)
+7. 访问 [http://localhost:17860](http://localhost:17860)
 
 ## 捐赠
 
