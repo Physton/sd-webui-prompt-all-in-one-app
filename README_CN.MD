@@ -88,7 +88,7 @@
 2. 下载本项目到本地。
   - 方式一：使用 git clone 下载（你的电脑上需要安装 git）
     ```bash
-    git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
+    git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
     ```
     > 请注意，本项目使用了子模块，所以请使用 `--recurse-submodules` 参数下载本项目
   - 方式二：手动下载：[Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) 并解压。

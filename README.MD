@@ -87,7 +87,7 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 2. Download this project to your local machine.
    - Option 1: Download using git clone (requires Git installed on your computer)
      ```bash
-     git clone git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
+     git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
      ```
      > Please note that this project uses submodules, so please use the `--recurse-submodules` parameter to download this project.
    - Option 2: Manual Download: [Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) and unzip it.
