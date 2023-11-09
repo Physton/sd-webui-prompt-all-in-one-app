@@ -57,11 +57,12 @@ jobs:
           zip -r ${{ env.TARGET }}.zip .
         working-directory: /${{ env.TARGET }}
 
-      - name: Get release
-        id: get_release
-        uses: bruceadams/get-release@v1.3.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Get latest release
+        id: latest_release
+        uses: kaliber5/action-get-release@v1
+        with:
+          token: ${{ secrets.token }}
+          latest: true
 
       - name: Upload Release Asset
         id: upload-release-asset
@@ -69,7 +70,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          upload_url: ${{ steps.latest_release.outputs.upload_url }}
           asset_path: /${{ env.TARGET }}/${{ env.TARGET }}.zip
           asset_name: sd-webui-prompt-all-in-one-app.${{ env.TARGET }}.zip
           asset_content_type: application/zip
@@ -122,11 +123,12 @@ jobs:
           zip -r ${{ env.TARGET }}.zip .
         working-directory: /${{ env.TARGET }}
 
-      - name: Get release
-        id: get_release
-        uses: bruceadams/get-release@v1.3.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Get latest release
+        id: latest_release
+        uses: kaliber5/action-get-release@v1
+        with:
+          token: ${{ secrets.token }}
+          latest: true
 
       - name: Upload Release Asset
         id: upload-release-asset
@@ -134,7 +136,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          upload_url: ${{ steps.latest_release.outputs.upload_url }}
           asset_path: /${{ env.TARGET }}/${{ env.TARGET }}.zip
           asset_name: sd-webui-prompt-all-in-one-app.${{ env.TARGET }}.zip
           asset_content_type: application/zip
