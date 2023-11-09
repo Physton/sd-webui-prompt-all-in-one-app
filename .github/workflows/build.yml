@@ -17,7 +17,9 @@ jobs:
 
     steps:
       - name: Create folder ${{ env.TARGET }}
-        run: sudo mkdir /${{ env.TARGET }}
+        run: |
+          sudo mkdir /${{ env.TARGET }}
+          sudo chmod 777 /${{ env.TARGET }}
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -80,7 +82,9 @@ jobs:
 
     steps:
       - name: Create folder ${{ env.TARGET }}
-        run: sudo mkdir /${{ env.TARGET }}
+        run: |
+          sudo mkdir /${{ env.TARGET }}
+          sudo chmod 777 /${{ env.TARGET }}
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -96,11 +100,11 @@ jobs:
       - name: Copy git repo folder to ${{ env.TARGET }}
         run: cp -r . /${{ env.TARGET }}/sd-webui-prompt-all-in-one-app
 
-      - name: Download Python (Windows embeddable package (64-bit))
+      - name: Download Python (Windows embeddable package (32-bit))
         run: |
           wget https://www.python.org/ftp/python/${{ env.PYTHON_VERSION }}/python-${{ env.PYTHON_VERSION }}-embed-win32.zip
-          unzip python-3.10.11-embed-amd64.zip -d python-${{ env.PYTHON_VERSION }}-embed-amd64
-          rm python-3.10.11-embed-amd64.zip
+          unzip python-3.10.11-embed-win32.zip -d python-${{ env.PYTHON_VERSION }}-embed-win32
+          rm python-3.10.11-embed-win32.zip
         working-directory: /${{ env.TARGET }}
 
       - name: Download startup-windows.bat
@@ -111,7 +115,7 @@ jobs:
       - name: Download pip
         run: |
           wget https://bootstrap.pypa.io/get-pip.py
-        working-directory: /${{ env.TARGET }}/python-${{ env.PYTHON_VERSION }}-embed-amd64
+        working-directory: /${{ env.TARGET }}/python-${{ env.PYTHON_VERSION }}-embed-win32
 
       - name: Zip ${{ env.TARGET }}
         run: |
