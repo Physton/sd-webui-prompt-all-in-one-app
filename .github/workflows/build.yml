@@ -1,0 +1,136 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: 3.10.11
+
+jobs:
+  windows_x64:
+    name: Windows x64
+    runs-on: ubuntu-latest
+    env:
+      TARGET: windows-x64
+
+    steps:
+      - name: Create folder ${{ env.TARGET }}
+        run: mkdir /${{ env.TARGET }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install zip
+        run: sudo apt-get install zip
+
+      - name: Install unzip
+        run: sudo apt-get install unzip
+
+      - name: Copy git repo folder to ${{ env.TARGET }}
+        run: cp -r . /${{ env.TARGET }}/sd-webui-prompt-all-in-one-app
+
+      - name: Download Python (Windows embeddable package (64-bit))
+        run: |
+          wget https://www.python.org/ftp/python/${{ env.PYTHON_VERSION }}/python-${{ env.PYTHON_VERSION }}-embed-amd64.zip
+          unzip python-3.10.11-embed-amd64.zip -d python-${{ env.PYTHON_VERSION }}-embed-amd64
+          rm python-3.10.11-embed-amd64.zip
+        working-directory: /${{ env.TARGET }}
+
+      - name: Download startup-windows.bat
+        run: |
+          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows.bat
+        working-directory: /${{ env.TARGET }}
+
+      - name: Download pip
+        run: |
+          wget https://bootstrap.pypa.io/get-pip.py
+        working-directory: /${{ env.TARGET }}/python-${{ env.PYTHON_VERSION }}-embed-amd64
+
+      - name: Zip ${{ env.TARGET }}
+        run: |
+          zip -r ${{ env.TARGET }}.zip .
+        working-directory: /${{ env.TARGET }}
+
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.3.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: /${{ env.TARGET }}/${{ env.TARGET }}.zip
+          asset_name: sd-webui-prompt-all-in-one-app.${{ env.TARGET }}.zip
+          asset_content_type: application/zip
+
+  windows_x86:
+    name: Windows x86
+    runs-on: ubuntu-latest
+    env:
+      TARGET: windows-x86
+
+    steps:
+      - name: Create folder ${{ env.TARGET }}
+        run: mkdir /${{ env.TARGET }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install zip
+        run: sudo apt-get install zip
+
+      - name: Install unzip
+        run: sudo apt-get install unzip
+
+      - name: Copy git repo folder to ${{ env.TARGET }}
+        run: cp -r . /${{ env.TARGET }}/sd-webui-prompt-all-in-one-app
+
+      - name: Download Python (Windows embeddable package (64-bit))
+        run: |
+          wget https://www.python.org/ftp/python/${{ env.PYTHON_VERSION }}/python-${{ env.PYTHON_VERSION }}-embed-win32.zip
+          unzip python-3.10.11-embed-amd64.zip -d python-${{ env.PYTHON_VERSION }}-embed-amd64
+          rm python-3.10.11-embed-amd64.zip
+        working-directory: /${{ env.TARGET }}
+
+      - name: Download startup-windows.bat
+        run: |
+          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows.bat
+        working-directory: /${{ env.TARGET }}
+
+      - name: Download pip
+        run: |
+          wget https://bootstrap.pypa.io/get-pip.py
+        working-directory: /${{ env.TARGET }}/python-${{ env.PYTHON_VERSION }}-embed-amd64
+
+      - name: Zip ${{ env.TARGET }}
+        run: |
+          zip -r ${{ env.TARGET }}.zip .
+        working-directory: /${{ env.TARGET }}
+
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.3.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: /${{ env.TARGET }}/${{ env.TARGET }}.zip
+          asset_name: sd-webui-prompt-all-in-one-app.${{ env.TARGET }}.zip
+          asset_content_type: application/zip
