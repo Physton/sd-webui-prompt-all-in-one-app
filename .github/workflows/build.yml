@@ -44,7 +44,8 @@ jobs:
 
       - name: Download startup-windows.bat
         run: |
-          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows.bat
+          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows-amd64.bat
+          mv startup-windows-amd64.bat startup-windows.bat
         working-directory: /${{ env.TARGET }}
 
       - name: Download pip
@@ -110,7 +111,8 @@ jobs:
 
       - name: Download startup-windows.bat
         run: |
-          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows.bat
+          wget https://raw.githubusercontent.com/Physton/sd-webui-prompt-all-in-one-assets/main/app/startup-windows-win32.bat
+          mv startup-windows-win32.bat startup-windows.bat
         working-directory: /${{ env.TARGET }}
 
       - name: Download pip
