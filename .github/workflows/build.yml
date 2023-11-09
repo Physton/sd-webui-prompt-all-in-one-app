@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Create folder ${{ env.TARGET }}
-        run: mkdir /${{ env.TARGET }}
+        run: sudo mkdir /${{ env.TARGET }}
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Create folder ${{ env.TARGET }}
-        run: mkdir /${{ env.TARGET }}
+        run: sudo mkdir /${{ env.TARGET }}
 
       - name: Checkout code
         uses: actions/checkout@v2
