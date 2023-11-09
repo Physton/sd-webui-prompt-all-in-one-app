@@ -90,7 +90,7 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
      git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
      ```
      > Please note that this project uses submodules, so please use the `--recurse-submodules` parameter to download this project.
-   - Option 2: Manual Download: [Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) and unzip it.
+   - Option 2: Manual Download: [sd-webui-prompt-all-in-one-app.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) and unzip it.
 4. Open the system command line (terminal) and navigate to the project directory.
    ```bash
    cd sd-webui-prompt-all-in-one-app

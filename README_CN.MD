@@ -91,7 +91,7 @@
     git clone https://github.com/Physton/sd-webui-prompt-all-in-one-app.git --recurse-submodules
     ```
     > 请注意，本项目使用了子模块，所以请使用 `--recurse-submodules` 参数下载本项目
-  - 方式二：手动下载：[Latest release](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) 并解压。
+  - 方式二：手动下载：[sd-webui-prompt-all-in-one-app.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.zip) 并解压。
 3. 打开系统命令行（终端），进入本项目目录
   ```bash
   cd sd-webui-prompt-all-in-one-app
