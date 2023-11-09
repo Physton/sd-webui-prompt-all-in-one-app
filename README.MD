@@ -17,15 +17,19 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 
 ----
 
-- [Development Plan](#development-plan)
+- [Windows One-Click Startup](#windows-one-click-startup)
 - [Running with Docker](#running-with-docker)
 - [Running Manually](#running-manually)
 - [Donation](#donation)
 
-## Development Plan
+## Windows One-Click Startup
 
-- [x] Running with Docker
-- [ ] Windows, MacOS, Linux standalone app
+1. Go to [Releases](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases) and download the corresponding zip file for your system.
+   - x64: [sd-webui-prompt-all-in-one-app.windows-x64.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.windows-x64.zip)
+   - x86: [sd-webui-prompt-all-in-one-app.windows-x86.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.windows-x86.zip)
+2. Extract the contents of the zip file and double-click on `startup-windows.bat` to start the application.
+3. The first time you start it, the dependencies will be installed automatically, which may take some time.
+4. Once the startup is successful, open a web browser and visit [http://localhost:17860](http://localhost:17860).
 
 ## Running with Docker
 

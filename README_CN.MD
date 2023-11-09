@@ -17,15 +17,25 @@
 
 ----
 
-- [开发计划](#开发计划)
+- [Windows 一键启动](#windows-一键启动)
 - [Docker 运行](#docker-运行)
 - [手动运行](#手动运行)
 - [捐赠](#捐赠)
 
-## 开发计划
+## Windows 一键启动
 
-- [x] Docker 运行
-- [ ] Windows、MacOS、Linux 独立APP
+1. 前往 [Releases](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases)，根据你的系统下载对应的压缩包。
+  - x64: [sd-webui-prompt-all-in-one-app.windows-x64.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.windows-x64.zip)
+  - x86: [sd-webui-prompt-all-in-one-app.windows-x86.zip](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases/latest/download/sd-webui-prompt-all-in-one-app.windows-x86.zip)
+2. 解压压缩包，双击 `startup-windows.bat` 启动。
+3. 第一次启动会自动安装依赖，需要等待一段时间。
+4. 启动成功后，使用浏览器访问 [http://localhost:17860](http://localhost:17860)
+
+> 如果你是中国大陆用户，可能因为网络原因无法正常安装依赖，可以尝试通过下面方法修改镜像源，然后再次运行 `startup-windows.bat` 启动。
+> 1. 使用记事本编辑 `startup-windows.bat` 文件
+> 2. 找到 `pip install -r requirements.txt` 这一行
+> 3. 将其修改为 `pip install -r requirements.txt -i https://pypi.mirrors.ustc.edu.cn/simple`
+> 4. 保存并关闭文件，再次运行 `startup-windows.bat` 启动
 
 ## Docker 运行
 
