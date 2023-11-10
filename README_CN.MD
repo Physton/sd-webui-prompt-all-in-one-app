@@ -30,6 +30,7 @@
 2. 解压压缩包，双击 `startup-windows.bat` 启动。
 3. 第一次启动会自动安装依赖，需要等待一段时间。
 4. 启动成功后，使用浏览器访问 [http://localhost:17860](http://localhost:17860)
+5. 如果需要修改端口、用户名、密码等配置，编辑 `.\sd-webui-prompt-all-in-one-app\.env` 文件即可。
 
 > 如果你是中国大陆用户，可能因为网络原因无法正常安装依赖，可以尝试通过下面方法修改镜像源，然后再次运行 `startup-windows.bat` 启动。
 > 1. 使用记事本编辑 `startup-windows.bat` 文件
@@ -46,6 +47,8 @@
   docker run -d \
   -p 17860:17860 \
   -e APP_PORT=17860 \
+  -e APP_USERNAME=admin \
+  -e APP_PASSWORD= \
   -v ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage \
   -v ./dockertest/models:/app/sd-webui-prompt-all-in-one/models \
   -v ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags \
@@ -65,6 +68,8 @@
         - 17860:17860
       environment:
         - APP_PORT=17860
+        - APP_USERNAME=admin
+        - APP_PASSWORD=
       volumes:
         - ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage
         - ./dockertest/models:/app/sd-webui-prompt-all-in-one/models
@@ -79,9 +84,11 @@
 [http://localhost:17860](http://localhost:17860)
 
 ### 环境变量
-| 参数 | 说明 | 默认值 |
-|:-----------:| :----: | :----: |
-| APP_PORT | 服务端口 | 17860 |
+| 参数 | 说明 | 默认值 | 说明 |
+|:-----------:| :----: | :----: | :----: |
+| APP_PORT | 服务端口 | 17860 | 不能为空 |
+| APP_USERNAME | 用户名 | admin | 可以为空 |
+| APP_PASSWORD | 密码 |  | 可以为空，如果为空，将不需要密码即可访问 |
 
 ### 挂载目录
 | 目录 |  说明   |
@@ -116,6 +123,7 @@
   python app.py
   ```
 6. 访问 [http://localhost:17860](http://localhost:17860)
+7. 如果需要修改端口、用户名、密码等配置，编辑根目录下的 `.env` 文件即可。
 
 ## 捐赠
 

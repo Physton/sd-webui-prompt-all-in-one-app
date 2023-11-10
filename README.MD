@@ -30,6 +30,7 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 2. Extract the contents of the zip file and double-click on `startup-windows.bat` to start the application.
 3. The first time you start it, the dependencies will be installed automatically, which may take some time.
 4. Once the startup is successful, open a web browser and visit [http://localhost:17860](http://localhost:17860).
+5. If you need to modify the configuration such as ports, usernames, passwords, etc., you can edit the `.\sd-webui-prompt-all-in-one-app\.env` file.
 
 ## Running with Docker
 
@@ -40,6 +41,8 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
   docker run -d \
   -p 17860:17860 \
   -e APP_PORT=17860 \
+  -e APP_USERNAME=admin \
+  -e APP_PASSWORD= \
   -v ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage \
   -v ./dockertest/models:/app/sd-webui-prompt-all-in-one/models \
   -v ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags \
@@ -59,6 +62,8 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
         - 17860:17860
       environment:
         - APP_PORT=17860
+        - APP_USERNAME=admin
+        - APP_PASSWORD=
       volumes:
         - ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage
         - ./dockertest/models:/app/sd-webui-prompt-all-in-one/models
@@ -73,9 +78,11 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
 [http://localhost:17860](http://localhost:17860)
 
 ### Environment Variables
-| Parameter | Description | Default Value |
-|:-----------:| :----: | :----: |
-| APP_PORT | Server port | 17860 |
+| Parameter | Description | Default Value | Explanation |
+|:-----------:| :----: | :----: | :----: |
+| APP_PORT | Service port | 17860 | Cannot be empty |
+| APP_USERNAME | Username | admin | Can be empty |
+| APP_PASSWORD | Password |  | Can be empty. If empty, no password is required to access |
 
 ### Mounted Directories
 | Directory | Description |
@@ -109,6 +116,7 @@ This project is an independent version of [sd-webui-prompt-all-in-one](https://g
    python app.py
    ```
 6. Access [http://localhost:17860](http://localhost:17860)
+7. If you need to modify the configuration such as ports, usernames, passwords, etc., you can edit the `.env` file in the root directory.
 
 ## Donation
 

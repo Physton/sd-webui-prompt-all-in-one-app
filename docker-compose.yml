@@ -8,6 +8,8 @@ services:
       - 17860:17860
     environment:
       - APP_PORT=17860
+      - APP_USERNAME=admin
+      - APP_PASSWORD=
     volumes:
       - ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage
       - ./dockertest/models:/app/sd-webui-prompt-all-in-one/models
