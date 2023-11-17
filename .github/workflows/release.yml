@@ -29,11 +29,11 @@ jobs:
 
       - name: Get base commit SHA
         id: base_commit_sha
-        run: echo "::set-output name=sha_short::$(git rev-parse --short=7 HEAD^)"
+        run: echo "::set-output name=sha_short::$(git rev-parse --short=7 HEAD)"
 
       - name: Get base commit SHA full
         id: base_commit_sha_full
-        run: echo "::set-output name=sha_full::$(git rev-parse HEAD^)"
+        run: echo "::set-output name=sha_full::$(git rev-parse HEAD)"
 
       - name: Get from commit SHA
         id: from_commit_sha
