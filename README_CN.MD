@@ -62,6 +62,7 @@
   -v ./dockertest/storage:/app/sd-webui-prompt-all-in-one/storage \
   -v ./dockertest/models:/app/sd-webui-prompt-all-in-one/models \
   -v ./dockertest/tags:/app/sd-webui-prompt-all-in-one/tags \
+  --name sd-webui-prompt-all-in-one-app \
   physton/sd-webui-prompt-all-in-one-app
   ```
 
