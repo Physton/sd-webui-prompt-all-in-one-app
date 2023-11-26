@@ -7,6 +7,7 @@
 [![GitHub license](https://img.shields.io/github/license/Physton/sd-webui-prompt-all-in-one-app?style=flat-square)](https://github.com/Physton/sd-webui-prompt-all-in-one-app/blob/master/LICENSE.md)
 [![GitHub commits](https://img.shields.io/github/last-commit/Physton/sd-webui-prompt-all-in-one-app?style=flat-square)](https://github.com/Physton/sd-webui-prompt-all-in-one-app/commits/main)
 [![Downloads total](https://img.shields.io/github/downloads/physton/sd-webui-prompt-all-in-one-app/total?style=flat-square)](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases)
+[![Latest release](https://img.shields.io/github/v/release/physton/sd-webui-prompt-all-in-one-app?style=flat-square)](https://github.com/Physton/sd-webui-prompt-all-in-one-app/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/physton/sd-webui-prompt-all-in-one-app?style=flat-square)](https://hub.docker.com/r/physton/sd-webui-prompt-all-in-one-app)
 [![Docker stars](https://img.shields.io/docker/stars/physton/sd-webui-prompt-all-in-one-app?style=flat-square)](https://hub.docker.com/r/physton/sd-webui-prompt-all-in-one-app/stargazers)
 
