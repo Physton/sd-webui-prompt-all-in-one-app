@@ -27,6 +27,10 @@ jobs:
           git push
         continue-on-error: true
 
+      - name: Get date # 20231126
+        id: date
+        run: echo "::set-output name=date::$(date +%Y%m%d)"
+
       - name: Get base commit SHA
         id: base_commit_sha
         run: echo "::set-output name=sha_short::$(git rev-parse --short=7 HEAD)"
@@ -58,8 +62,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: base.${{ steps.base_commit_sha.outputs.sha_short }}-from.${{ steps.from_commit_sha.outputs.sha_short }}
-          release_name: Base@${{ steps.base_commit_sha.outputs.sha_short }} / From@${{ steps.from_commit_sha.outputs.sha_short }}
+          tag_name: ${{ steps.date.outputs.date }}.base.${{ steps.base_commit_sha.outputs.sha_short }}-from.${{ steps.from_commit_sha.outputs.sha_short }}
+          release_name: ${{ steps.date.outputs.date }} Base@${{ steps.base_commit_sha.outputs.sha_short }} / From@${{ steps.from_commit_sha.outputs.sha_short }}
           body: "Build version:\nsd-webui-prompt-all-in-one-app: https://github.com/Physton/sd-webui-prompt-all-in-one-app/commit/${{ steps.base_commit_sha_full.outputs.sha_full }}\nsd-webui-prompt-all-in-one: https://github.com/Physton/sd-webui-prompt-all-in-one/commit/${{ steps.from_commit_sha_full.outputs.sha_full }}"
           draft: false
           prerelease: false
